@@ -110,10 +110,6 @@ class STRIPS(SearchDomain):
     def middle(self, state1, state2):
         return None
 
-    # Checks if a given "goal" is satisfied in a given "state"
-    def satisfies(self, state, goal):
-        return all(p in state for p in goal)
-
     # Checks if two states are equivalent
     def equivalent(self,state1,state2):
         return self.sort(state1)==self.sort(state2)

@@ -124,8 +124,8 @@ class SearchTree:
             self.open_nodes[:0] = lnewnodes
         elif self.strategy == 'astar':
             self.astar_add_to_open(lnewnodes)
-        elif self.strategy == 'hybrid':
-            self.hybrid_add_to_open(lnewnodes)
+        elif self.strategy == 'hybrid1':
+            self.hybrid1_add_to_open(lnewnodes)
         elif self.strategy == 'hybrid2':
             self.hybrid2_add_to_open(lnewnodes)
 

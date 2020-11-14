@@ -122,12 +122,4 @@ class MySTRIPS(STRIPS):
         # return state
 
     def sort(self,state):
-        state.sort(key=lambda st: str(st))
-        return state
-        
-        # OU 
-        # Se quisermos numa linha poderá ser este o return, mas como temos que iterar os estados com uma list comprehension considero a solução acima mais eficiente
-        # return sorted([st for st in state], key=lambda st: str(st))
-
-
-
+        return sorted(state, key=lambda st: str(st))

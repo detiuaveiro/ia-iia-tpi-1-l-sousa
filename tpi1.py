@@ -101,6 +101,11 @@ class MinhasCidades(Cidades):
         # o min() recebe como argumento uma função que lhe diz porque valores ordenar (que é, neste caso, a heuristica somada)
         return min([st for st in self.coordinates if st != city1 and st != city2], key=lambda st: self.heuristic(city1, st) + self.heuristic(st, city2))
         
+        # Solução inicial antes de meter tudo numa linha.
+        # middles = [st for st in self.coordinates if st != city1 and st != city2]
+        # middles.sort(key=lambda st: self.heuristic(city1, st) + self.heuristic(st, city2))
+        # return middles[0]
+
 class MySTRIPS(STRIPS):
     def result(self, state, action):
         

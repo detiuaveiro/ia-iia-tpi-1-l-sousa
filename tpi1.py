@@ -77,10 +77,6 @@ class MyTree(SearchTree):
         # Calcula a cidade intermédia entre incial e a goal
         middle = self.problem.domain.middle(self.problem.initial, self.problem.goal)
 
-        # Previne não encontrar o middle
-        if not middle: 
-            return self.search2()
-
         # Dividir o problema em dois:
         # Calcula da cidade inicial -> intermédia
         self.from_init = MyTree(SearchProblem(self.problem.domain, self.problem.initial, middle), self.strategy)

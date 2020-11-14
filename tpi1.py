@@ -79,7 +79,7 @@ class MyTree(SearchTree):
 
         # Previne não encontrar o middle
         if not middle: 
-            return self.search2
+            return self.search2()
 
         # Dividir o problema em dois:
         # Calcula da cidade inicial -> intermédia

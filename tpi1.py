@@ -52,7 +52,7 @@ class MyTree(SearchTree):
             for a in self.problem.domain.actions(node.state):
                 newstate = self.problem.domain.result(node.state,a)
                 if newstate not in self.get_path(node):
-
+                    
                     if self.offsets_per_depth.get(node.depth + 1):
                         offset = self.offsets_per_depth.get(node.depth + 1)
                     else:
@@ -74,17 +74,21 @@ class MyTree(SearchTree):
 
     def search_from_middle(self):
 
+        # Calcula a cidade intermédia entre incial e a goal
         middle = self.problem.domain.middle(self.problem.initial, self.problem.goal)
-       
+
+        # Dividir o problema em dois:
+        # Calcula da cidade inicial -> intermédia
         self.from_init = MyTree(SearchProblem(self.problem.domain, self.problem.initial, middle), self.strategy)
         solve1 = self.from_init.search2()
 
+        # Calcula da intermédia -> cidade goal
         self.to_goal = MyTree(SearchProblem(self.problem.domain, middle, self.problem.goal), self.strategy)
         solve2 = self.to_goal.search2()
 
+        # Concatena e corta de uma das listas a cidade intermédia se não ficava repetida
         return solve1[:-1] + solve2 
         
-
 class MyNode(SearchNode):
     def __init__(self,state, parent, depth, offset): 
         super().__init__(state, parent)
